@@ -21,3 +21,24 @@ async def gyoungha(request:Request):
     return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request})
 
 
+
+from databases.connections import Database
+from models.users import User
+collection_user = Database(User)
+from beanie import PydanticObjectId
+# 문제 나열 문제풀기
+@router.get("/solve")
+async def youngji(request:Request):
+    print(dict(request._query_params))
+    user = await collection_user.get()
+    return templates.TemplateResponse(name="users/reads.html"
+                                      , context={'request':request
+                                                 , 'user':user})
+
+@router.post("/insert") # 펑션 호출 방식
+async def youngji_post(request:Request):
+    user_dict = await request.form()
+    print(user_dict)
+    return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
+
+

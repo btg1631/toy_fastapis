@@ -1,6 +1,7 @@
 [
     {
         "question": "다음 중 파이썬에서 사용되는 산술 연산자가 아닌 것은?",
+        "choices": ["len()", "size()", "length()", "sizeof() 수정!!"],  
         "answer": 3,
         "score": 10
     },

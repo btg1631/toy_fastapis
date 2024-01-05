@@ -1,1 +1,42 @@
-<h2>dongchul</h2>
+{% extends "main_template.html"%}
+<title>문제 풀기</title>
+
+{% block main_container %}
+<h2 class="mb-3 mt-3">—--------- 문제 풀기  -------------------</h2>
+<form action="">
+    <div class="mb-3 mt-3 row">
+        <label for="name" class="col-sm-2 col-form-label" >응시자 이름을 입력하세요 :</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">    
+        </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <div>
+            <div>문항1</div>
+            <input name="answer" type="radio">
+            <label for="answer1">answer1</label>
+        </div>
+        <div>
+            <input name="answer" type="radio">
+            <label for="answer2">answer2</label>
+        </div>
+        <div>
+            <input name="answer" type="radio">
+            <label for="answer3">answer3</label>
+        </div>        
+    </div>
+
+        <!-- {% for user in users %}
+        <div>문항{{loop.index1}}, {{user.problem}}</div>
+        <div>{{user.answer1}}</div>
+        <div>{{user.answer2}}</div>
+        <div>{{user.answer3}}</div>
+        <div>{{user.answer4}}</div> -->
+    </div>
+    <!-- {% endfor %} -->
+</form>
+    <button type="submit" class="btn btn-primary" formaction="/usersss/insert" formmethod="post">풀이보기</button>
+    <button type="submit" class="btn btn-primary" formaction="/">취소</button>
+</form>
+{% endblock %}

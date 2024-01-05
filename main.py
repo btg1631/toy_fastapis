@@ -2,9 +2,11 @@ from fastapi import FastAPI
 app = FastAPI()
 
 from toy.routes.menu import router as menu_router
+from toy.routes.users import router as user_router
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
 app.include_router(menu_router, prefix="/users")
+app.include_router(user_router, prefix="/usersss")
 
 
 # html 들이 있는 폴더 위치
@@ -21,12 +23,12 @@ app.add_middleware(
 )
 
 @app.get("/")
-async def root(Request:Request):
+async def root(request:Request):
     # return {"message": "jisu World"}
-    return templates.TemplateResponse("main.html",{'request':Request})
+    return templates.TemplateResponse("main.html",{'request':request})
 
 @app.post("/")
-async def root(Request:Request):
+async def root(request:Request):
     # return {"message": "jisu World"}
-    return templates.TemplateResponse("main.html",{'request':Request})
+    return templates.TemplateResponse("main.html",{'request':request})
 
