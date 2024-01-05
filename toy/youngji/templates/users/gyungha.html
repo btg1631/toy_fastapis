@@ -1,1 +1,44 @@
-<h2>gyoungha</h2>
+{% extends "main_template.html"%}
+
+<title>문제 작성</title>
+
+{% block main_container %}
+
+<form action="">
+    <div class="mb-3 mt-3">
+        <label for="question_first" class="form-label">문항 1 :</label>
+        <input type="question_first" class="form-control" id="question_first" placeholder="Enter question_first" name="quesition">
+        <label for="score_first" class="form-label">점수 :</label>
+        <input type="score_first" class="form-control" id="score_first" placeholder="Enter score" name="score_first">
+        <label for="answer_first" class="form-label">정답 :</label>
+        <input type="answer_first" class="form-control" id="answer_first" placeholder="Enter answer" name="answer_first">
+    </div>
+    <div>
+        <label for="sel1" class="form-label">Answer list (select one):</label>
+        <select class="form-select" id="sel1" name="sellist1">
+            <option value="Option1">1. Guido van Rossum </option>
+            <option value="Option2">2. James Gosling 
+            </option>
+            <option value="Option3">3. Dennis Ritchie </option>
+            <option value="Option4">4. Brendan Eich
+            </option>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="question_second" class="form-label">문항 2 :</label>
+        <input type="question_second" class="form-control" id="question_second" placeholder="Enter question" name="quesition_second">
+        <label for="score_second" class="form-label">점수 :</label>
+        <input type="score_second" class="form-control" id="score_second" placeholder="Enter score" name="score_second">
+        <label for="answer_second" class="form-label">정답 :</label>
+        <input type="answer_second" class="form-control" id="answer_second" placeholder="Enter answer" name="answer_second">
+    </div>
+    <div>
+        <label for="sel1" class="form-label">Answer list (select one):</label>
+        <select class="form-select" id="sel1" name="sellist1">
+            <option value="Option1">1. sum</option>
+            <option value="Option2">2. len</option>
+            <option value="Option3">3. list</option>
+            <option value="Option4">4. Str</option>
+    </div>
+</form>
+{% endblock %}
+
