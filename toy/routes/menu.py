@@ -6,15 +6,15 @@ from fastapi import Request
 
 router = APIRouter()
 
-templates = Jinja2Templates(directory="toy/youngji/templates/")
+templates = Jinja2Templates(directory="toy/templates/")
 
 @router.get("/youngji", response_class=HTMLResponse)
 async def youngji(request:Request):
     return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
 
-@router.get("/gyoungha")
+@router.get("/gyungha")
 async def gyoungha(request:Request):
-    return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request})
+    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
 
 @router.get("/dongchul", response_class=HTMLResponse)
 async def dongchul(request:Request):
