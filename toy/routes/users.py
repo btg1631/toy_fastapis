@@ -5,7 +5,7 @@ from fastapi import Request
 
 router = APIRouter()
 
-templates = Jinja2Templates(directory="toy/youngji/templates/")
+templates = Jinja2Templates(directory="toy/templates/")
 
 # 문제 작성 /users/quesiton_write
 @router.post("/quesiton_write", response_class=HTMLResponse) # 펑션 호출 방식

@@ -1,14 +1,14 @@
 from fastapi import FastAPI
 app = FastAPI()
 
-from routes.users import router as users_router
+from toy.routes.menu import router as menu_router
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
-app.include_router(users_router, prefix="/solvingproblem")
+app.include_router(menu_router, prefix="/users")
 
 
 # html 들이 있는 폴더 위치
-templates = Jinja2Templates(directory="toy/youngji/templates/")
+templates = Jinja2Templates(directory="toy/templates/")
 
 from fastapi.middleware.cors import CORSMiddleware
 # No 'Access-Control-Allow-Origin'
