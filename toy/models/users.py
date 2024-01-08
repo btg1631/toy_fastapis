@@ -5,7 +5,7 @@ from pydantic import BaseModel, EmailStr
 
 
 # 개발자 실수로 들어가는 field 제한
-class Problem(Document):
+class User(Document):
     name: Optional[str] = None
     useranswer1: Optional[str] = None
     useranswer2: Optional[str] = None
@@ -14,5 +14,5 @@ class Problem(Document):
     useranswer5: Optional[str] = None
   
     class Settings:
-        name = "problems"
+        name = "user"
   

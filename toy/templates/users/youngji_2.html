@@ -20,20 +20,20 @@
     </div>
     <div class="mb-3 mt-3">
         <div>문항2</div>
-        <div><input type="radio" name="useranswer2" value="1">1번</div>
+        <div><input type="radio" name="useranswer2" value="1" checked>1번</div>
         <div><input type="radio" name="useranswer2" value="2">2번</div>
         <div><input type="radio" name="useranswer2" value="3" >3번</div>
         <div><input type="radio" name="useranswer2" value="4">4번</div>
     </div>
-        <!-- {% for problem in problems %}
-        <div>문항{{loop.index1}}, {{user.problem}}</div>
-        <div><input type="radio" name="useranswer{{loop.index1}}" value="1" checked>1.{{user.answer1}}</div>
-        <div>2.{{user.answer2}}</div>
-        <div>3.{{user.answer3}}</div>
-        <div>4.{{user.answer4}}</div> -->
-        <!-- {% endfor %} -->
-    </div>
     {% for problem in problems %}
+    <div>문항{{loop.index1}}, {{problem.question}}</div>
+    <!-- <div><input type="radio" name="useranswer{{loop.index1}}" value="1" checked>1.{{user.answer1}}</div>
+    <div>2.{{user.answer2}}</div>
+    <div>3.{{user.answer3}}</div>
+    <div>4.{{user.answer4}}</div> -->
+    <!-- </div> -->
+    {% endfor %}
+    <!-- {% for problem in problems %}
     <div>
         <h2>문항{{loop.index1}},{{ problem.question }}</h2>
         <ul>
@@ -48,7 +48,7 @@
             </ul>
             {% endif %}
     </div>
-    {% endfor %}
+    {% endfor %} -->
     <button type="submit" class="btn btn-primary" formaction="/usersss/insert" formmethod="post">풀이보기</button>
     <button type="submit" class="btn btn-primary" formaction="/users/gyungha">취소</button>
 </form>
