@@ -20,15 +20,8 @@
     </div>
     {% for problem in problems %}
     <div>문항{{loop.index1}}, {{problem.question}}</div>
+    
     {% endfor %}
-
-    <!-- {% for problem in problems %}
-    <div>문항{{loop.index1}}, {{problem.question}}</div>
-    <div><input type="radio" name="useranswer{{loop.index1}}" value="1" checked>1.{{user.answer1}}</div>
-    <div><input type="radio" name="useranswer{{loop.index1}}" value="2" checked>2.{{user.answer2}}</div>
-    <div><input type="radio" name="useranswer{{loop.index1}}" value="3" checked>3.{{user.answer3}}</div>
-    <div><input type="radio" name="useranswer{{loop.index1}}" value="4" checked>4.{{user.answer4}}</div>
-    {% endfor %} -->
 
     <button type="submit" class="btn btn-primary" formaction="/user/insert" formmethod="post">풀이보기</button>
     <button type="submit" class="btn btn-primary" formaction="/user/quit" formmethod="post">취소</button>

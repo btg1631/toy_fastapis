@@ -29,6 +29,7 @@ async def youngji(request:Request):
                                                                           , 'problems': problem_list})
 
 
+
 @router.get("/youngji2", response_class=HTMLResponse)
 async def youngji2(request:Request):
     problem_list = await collection_problem.get_all()

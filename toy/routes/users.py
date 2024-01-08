@@ -54,17 +54,17 @@ async def youngji(request:Request):
 # 문제 풀이 저장(응시자 이름/정답)
 @router.post("/insert") # 펑션 호출 방식
 async def youngji_post(request:Request):
-    user_dict = await request.form()
+    user_dict = dict(await request.form())
     print(user_dict)
-    # 저장    
-    # user = User(**user_dict)
-    # await collection_user.save(user)
-    # # 리스트 정보
-    # user_list = await collection_user.get_all()
-    return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
+    name = user(**user_dict)
+    await collection_user.save(name)
 
-    # return templates.TemplateResponse(name="users/youngji.html", context={'request':request, 'users':user_list})
+    problem_list = await collection_problem.get_all()
+    useranswer_list = await collection_user.get_all()
 
+    return templates.TemplateResponse(name="users/youngji.html", context={'request':request
+                                                                          , 'useranswer':useranswer_list
+                                                                          , 'problems': problem_list})
 @router.post("/quit", response_class=HTMLResponse) # 펑션 호출 방식
 async def quit(request:Request):
     return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
