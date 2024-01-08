@@ -17,66 +17,21 @@
             </tr>
         </thead>
         <tbody>
+            {% for users in user %}
             <tr>
-                <td>다음 중 파이썬에서 사용되는 산술 연산자가 아닌 것은?</td>
-                <td>4</td>
-                <td>10</td>
-                <td>   <select class="form-select" id="sel1" name="sellist1">
-                    <option value="Option1">1. +</option>
-                    <option value="Option2">2. -</option>
-                    <option value="Option3">3. *</option>
-                    <option value="Option4">4. =></option>
-                </select></td>
-            </tr>
-            <tr>
-                <td>파이썬에서 리스트의 길이를 확인하는 함수는?</td>
-                <td>4</td>
-                <td>10</td>
-                <td>   <select class="form-select" id="sel1" name="sellist1">
-                    <option value="Option1">1. len()</option>
-                    <option value="Option2">2. size()</option>
-                    <option value="Option3">3. length()</option>
-                    <option value="Option4">4. sizeof()</option>
-                </select></td>
-
-            </tr>
-            <tr>
-                <td>파이썬에서 문자열을 분할하는 함수는?</td>
-                <td>1</td>
-                <td>10</td>
-                <td>   <select class="form-select" id="sel1" name="sellist1">
-                    <option value="Option1">1. split()</option>
-                    <option value="Option2">2. divide()</option>
-                    <option value="Option3">3. slice()</option>
-                    <option value="Option4">4. cut()</option>
-                </select></td>
-
-            </tr>
-            <tr>
-                <td>파이썬에서 불변의 순서가 있는 자료형은?</td>
-                <td>4</td>
-                <td>10</td>
-                <td>   <select class="form-select" id="sel1" name="sellist1">
-                    <option value="Option1">1. List</option>
-                    <option value="Option2">2. Dictionary</option>
-                    <option value="Option3">3. Set</option>
-                    <option value="Option4">4. Tuple</option>
-                </select></td>
-
-            </tr>
-            <tr>
-                <td>다음 중 파이썬의 기본 자료형이 아닌 것은?</td>
-                <td>3</td>
-                <td>10</td>
-                <td>
+                <td>{{users.question}}</td>
+                <td>{{users.answer}}</td>
+                <td>{{users.score}}</td>
+                <td>   
                     <select class="form-select" id="sel1" name="sellist1">
-                        <option value="Option1">1. int</option>
-                        <option value="Option2">2. float</option>
-                        <option value="Option3">3. bool</option>
-                        <option value="Option4">4. str</option>
-                    </select>
-                </td>
+                    <option value="Option1">1. {{users.choice1}}</option>
+                    <option value="Option2">2. {{users.choice2}}</option>
+                    <option value="Option3">3. {{users.choice3}}</option>
+                    <option value="Option4">4. {{users.choice4}}</option>
+                </select>
+            </td>
             </tr>
+            {% endfor %}
             
         </tbody>
     </table>

@@ -9,8 +9,8 @@ templates = Jinja2Templates(directory="toy/templates/")
 
 
 from databases.connections import Database
-from models.users import User
-collection_user = Database(User)
+from toy.models.users import user
+collection_user = Database(user)
 
 
 # 문제 작성 /users/quesiton_write
@@ -23,8 +23,8 @@ async def gyoungha(request:Request):
 @router.get("/quesiton_write", response_class=HTMLResponse) # 펑션 호출 방식
 async def gyoungha(request:Request):
     await dict(request._query_params)
-
-    return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request})
+    user_list = await collection_user.get_all()
+    return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request, 'user':user_list})
 
 
 
