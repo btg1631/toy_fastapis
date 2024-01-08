@@ -12,40 +12,39 @@ templates = Jinja2Templates(directory="toy/templates/")
 async def gyoungha(request:Request):
     await request.form()
     print(dict(await request.form()))
-    return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request})
+    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
 
 @router.get("/quesiton_write", response_class=HTMLResponse) # 펑션 호출 방식
 async def gyoungha(request:Request):
     await request.form()
     print(dict(await request.form()))
-    return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request})
+    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
 
 
 
-from databases.connections import Database
-
-# from models.problems import Problem
-# from models.choices import Choice
-from models.users import User
-# collection_problem = Database(Problem)
-# collection_choice = Database(Choice)
-# collection_user = Database(User)
+from toy.databases.connections import Database
+from toy.models.problems import problem
+from toy.models.choices import choices
+from toy.models.users import user
+collection_problem = Database(problem)
+collection_choice = Database(choices)
+collection_user = Database(user)
 from beanie import PydanticObjectId
 # 문제 나열 문제풀기
 @router.get("/solve")
 async def youngji(request:Request):
-    print(dict(request._query_params))
-    # problem = await collection_problem.get_all()
-    # choice = await collection_choice.get_all()
+    problem = await collection_problem.get_all()
+    choice = await collection_choice.get_all()
 
     # problem_id를 이용해서 choice를 불러오는 코드가 필요함
      
-    return templates.TemplateResponse(name="users/reads.html"
-                                      , context={'request':request})
     # return templates.TemplateResponse(name="users/reads.html"
-    #                                   , context={'request':request
-    #                                              , 'problem':problem
-    #                                              , 'choice':choice})
+    #                                   , context={'request':request})
+    return templates.TemplateResponse(name="users/youngji_2.html"
+                                      , context={'request':request
+                                                 , 'problem':problem
+                                                 , 'choices':choice})
+
 # 문제 풀이 저장(응시자 이름/정답)
 @router.post("/insert") # 펑션 호출 방식
 async def youngji_post(request:Request):
@@ -59,5 +58,14 @@ async def youngji_post(request:Request):
     return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
 
     # return templates.TemplateResponse(name="users/youngji.html", context={'request':request, 'users':user_list})
+
+@router.post("/quit", response_class=HTMLResponse) # 펑션 호출 방식
+async def quit(request:Request):
+    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
+@router.get("/quit", response_class=HTMLResponse) # 펑션 호출 방식
+async def quit(request:Request):
+    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
+
+
 
 

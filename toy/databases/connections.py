@@ -1,8 +1,8 @@
 from typing import Any, List, Optional
 from beanie import init_beanie, PydanticObjectId
-from models.problems import problem
-from models.choices import choices
-from models.users import user
+from toy.models.problems import problem
+from toy.models.choices import choices
+from toy.models.users import user
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic_settings import BaseSettings
 

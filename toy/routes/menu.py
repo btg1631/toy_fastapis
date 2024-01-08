@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from starlette.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
-
+from beanie import init_beanie
 
 router = APIRouter()
 
@@ -12,10 +12,31 @@ templates = Jinja2Templates(directory="toy/templates/")
 async def youngji(request:Request):
     return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
 
+from toy.databases.connections import Database
+
+# from toy.models.choices import choices
+# collection_choice = Database(choices)
+
+# from toy.models.users import user
+# collection_user = Database(user)
+
+from toy.models.problems import problem
+collection_problem = Database(problem)
+
 @router.get("/youngji2", response_class=HTMLResponse)
 async def youngji2(request:Request):
-    return templates.TemplateResponse(name="users/youngji_2.html", context={'request':request})
+    problem_list = await collection_problem.get_all()
+    print(problem_list)
+    
+    return templates.TemplateResponse(name="users/youngji_2.html"
+                                          , context={'request':request
+                                                     , 'problems': problem_list})
 
+
+    # return templates.TemplateResponse(name="users/youngji_2.html"
+    #                                   , context={'request':request
+    #                                              , 'problem':problem
+    #                                              , 'choices':choice})
 
 
 @router.get("/gyungha")
