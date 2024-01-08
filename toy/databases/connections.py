@@ -1,6 +1,6 @@
 from typing import Any, List, Optional
 from beanie import init_beanie, PydanticObjectId
-from toy.models.problems import problem
+from toy.models.problems import problems
 from toy.models.choices import choices
 from toy.models.users import user
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
         await init_beanie(database=client.get_default_database(),
-                            document_models=[problem])
+                            document_models=[problems])
     class Config:
             env_file = ".env" 
 

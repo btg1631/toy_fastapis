@@ -29,10 +29,10 @@ async def gyoungha(request:Request):
 
 
 from toy.databases.connections import Database
-from toy.models.problems import problem
+from toy.models.problems import problems
 from toy.models.choices import choices
 from toy.models.users import user
-collection_problem = Database(problem)
+collection_problem = Database(problems)
 collection_choice = Database(choices)
 collection_user = Database(user)
 

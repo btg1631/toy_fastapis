@@ -9,8 +9,8 @@ from toy.databases.connections import Database
 from toy.models.users import user
 collection_user = Database(user)
 
-from toy.models.problems import problem
-collection_problem = Database(problem)
+from toy.models.problems import problems
+collection_problem = Database(problems)
 
 from toy.models.choices import choices
 collection_choice = Database(choices)
