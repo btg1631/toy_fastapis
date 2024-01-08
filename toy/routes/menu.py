@@ -12,6 +12,9 @@ collection_user = Database(user)
 from toy.models.problems import problem
 collection_problem = Database(problem)
 
+from toy.models.choices import choices
+collection_choice = Database(choices)
+
 router = APIRouter()
 
 templates = Jinja2Templates(directory="toy/templates/")
@@ -29,8 +32,11 @@ async def youngji(request:Request):
 async def gyoungha(request:Request):
     request._query_params
     dict(request._query_params)
-    user_list = await collection_user.get_all()
-    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request, 'user':user_list})
+    problem_list = await collection_problem.get_all()
+    choice_list = await collection_choice.get_all()
+
+
+    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request, 'problems':problem_list, 'choices':choice_list})
 
 @router.get("/dongchul", response_class=HTMLResponse)
 async def dongchul(request:Request):

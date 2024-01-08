@@ -5,7 +5,7 @@ from pydantic import BaseModel, EmailStr
 
 
 # 개발자 실수로 들어가는 field 제한
-class user(Document):
+# class user(Document):
     # question: Optional[str] = None
     # choice1: Optional[EmailStr] = None
     # choice2: Optional[EmailStr] = None

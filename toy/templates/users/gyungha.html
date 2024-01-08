@@ -17,21 +17,25 @@
             </tr>
         </thead>
         <tbody>
-            {% for users in user %}
             <tr>
-                <td>{{users.question}}</td>
-                <td>{{users.answer}}</td>
-                <td>{{users.score}}</td>
+            {% for problem in problems %}
+
+                <td>{{problem.question}}</td>
+                <td>{{problem.answer}}</td>
+                <td>{{problem.score}}</td>
+            {% endfor %}
+
                 <td>   
+                    {% for choice in choices %}
                     <select class="form-select" id="sel1" name="sellist1">
-                    <option value="Option1">1. {{users.choice1}}</option>
-                    <option value="Option2">2. {{users.choice2}}</option>
-                    <option value="Option3">3. {{users.choice3}}</option>
-                    <option value="Option4">4. {{users.choice4}}</option>
+                    <option value="Option1">1. {{choice.choice1}}</option>
+                    <option value="Option2">2. {{choice.choice2}}</option>
+                    <option value="Option3">3. {{choice.choice3}}</option>
+                    <option value="Option4">4. {{choice.choice4}}</option>
                 </select>
+                {% endfor %}
             </td>
             </tr>
-            {% endfor %}
             
         </tbody>
     </table>
