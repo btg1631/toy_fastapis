@@ -5,25 +5,20 @@
 <h2 class="mb-3 mt-3">—--------- 문제 풀기  -------------------</h2>
 <form action="">
     <div class="mb-3 mt-3 row">
-        <label for="name" class="col-sm-2 col-form-label" >응시자 이름을 입력하세요 :</label>
+        <label for="name" class="col-sm-2 col-form-label" >응시자 이름을 입력하세요</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">    
         </div>
     </div>
-    <!-- 5문항 -->
-    <div class="mb-3 mt-3">
-        <div>문항1</div>
-        <div><input type="radio" name="useranswer1" value="1" checked>1번</div>
-        <div><input type="radio" name="useranswer1" value="2">2번</div>
-        <div><input type="radio" name="useranswer1" value="3" >3번</div>
-        <div><input type="radio" name="useranswer1" value="4">4번</div>
-    </div>
-    {% for problem in problems %}
-    <div>문항{{loop.index1}}, {{problem.question}}</div>
-    
+    {% for problem, choice1, choice2, choice3, choice4 in problem_choices %}
+    <div class="mt-3">{{ problem }}</div>
+    <div><input type="radio" name="problem{{loop.index0+1}}" value="1" checked> {{choice1}}</div>
+    <div><input type="radio" name="problem{{loop.index0+1}}" value="2" > {{choice2}}</div>
+    <div><input type="radio" name="problem{{loop.index0+1}}" value="3" > {{choice3}}</div>
+    <div class="mb-3"><input type="radio" name="problem{{loop.index0+1}}" value="4" > {{choice4}}</div>
     {% endfor %}
 
-    <button type="submit" class="btn btn-primary" formaction="/user/insert" formmethod="post">풀이보기</button>
-    <button type="submit" class="btn btn-primary" formaction="/user/quit" formmethod="post">취소</button>
+    <button type="submit" class="btn btn-primary" formaction="/user/list" formmethod="post">풀이보기</button>
+    <button type="submit" class="btn btn-primary" formaction="/user/quit" formmethod="post">뒤로가기</button>
 </form>
 {% endblock %}
