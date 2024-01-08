@@ -7,18 +7,24 @@ router = APIRouter()
 
 templates = Jinja2Templates(directory="toy/templates/")
 
+
+from databases.connections import Database
+from models.users import User
+collection_user = Database(User)
+
+
 # 문제 작성 /users/quesiton_write
 @router.post("/quesiton_write", response_class=HTMLResponse) # 펑션 호출 방식
 async def gyoungha(request:Request):
     await request.form()
-    print(dict(await request.form()))
+    dict(await request.form())
     return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
 
 @router.get("/quesiton_write", response_class=HTMLResponse) # 펑션 호출 방식
 async def gyoungha(request:Request):
-    await request.form()
-    print(dict(await request.form()))
-    return templates.TemplateResponse(name="users/gyungha.html", context={'request':request})
+    await dict(request._query_params)
+
+    return templates.TemplateResponse(name="users/gyoungha.html", context={'request':request})
 
 
 

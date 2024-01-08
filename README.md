@@ -1,5 +1,8 @@
 ```
-~$ pip install fastapi uvicorn jinja2
-~$ pip install python-multipart
+|멤버|역할|
+|--|--|
+|김경하|설문 문제와 선택지 리스트 만들기|
+|한동철|--|
+|장영지|--|
 
 ```
