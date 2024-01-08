@@ -11,5 +11,5 @@ class problems(Document):
     score: Optional[int] = None
   
     class Settings:
-        name = "problems"
+        name = "problem"
   
