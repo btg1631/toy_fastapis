@@ -6,13 +6,14 @@ from pydantic import BaseModel, EmailStr
 
 # 개발자 실수로 들어가는 field 제한
 class User(Document):
-    name: Optional[str] = None
-    email: Optional[EmailStr] = None
-    pswd: Optional[str] = None
-    manager: Optional[str] = None
-    sellist1 : Optional[str] = None
-    text : Optional[str] = None
-  
+    question: Optional[str] = None
+    choice1: Optional[EmailStr] = None
+    choice2: Optional[EmailStr] = None
+    choice3: Optional[EmailStr] = None
+    choice4: Optional[EmailStr] = None
+    answer: Optional[str] = None
+    score: Optional[str] = None
+    
     class Settings:
-        name = "users"
+        name = "questions_write"
   
