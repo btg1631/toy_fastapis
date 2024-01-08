@@ -4,24 +4,30 @@ from fastapi.templating import Jinja2Templates
 from fastapi import Request
 from beanie import init_beanie
 
+from toy.databases.connections import Database
+
+# from toy.models.choices import choices
+# collection_choice = Database(choices)
+
+from toy.models.users import user
+collection_user = Database(user)
+
+from toy.models.problems import problem
+collection_problem = Database(problem)
+
 router = APIRouter()
 
 templates = Jinja2Templates(directory="toy/templates/")
 
 @router.get("/youngji", response_class=HTMLResponse)
 async def youngji(request:Request):
-    return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
+    problem_list = await collection_problem.get_all()
+    useranswer_list = await collection_user.get_all()
 
-from toy.databases.connections import Database
+    return templates.TemplateResponse(name="users/youngji.html", context={'request':request
+                                                                          , 'useranswer':useranswer_list
+                                                                          , 'problems': problem_list})
 
-# from toy.models.choices import choices
-# collection_choice = Database(choices)
-
-# from toy.models.users import user
-# collection_user = Database(user)
-
-from toy.models.problems import problem
-collection_problem = Database(problem)
 
 @router.get("/youngji2", response_class=HTMLResponse)
 async def youngji2(request:Request):
