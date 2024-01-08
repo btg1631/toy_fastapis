@@ -23,14 +23,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for user in users %}
+            {% for user in useranswer %}
             <tr>
                 <td>{{user.name}}</td>
-                <td>{{user.useranswer1}}</td>
-                <td>{{user.useranswer2}}</td>
-                <td>{{user.useranswer3}}</td>
-                <td>{{user.useranswer4}}</td>
-                <td>{{user.useranswer5}}</td>
+                <td>{{user.problem1}}</td>
+                <td>{{user.problem2}}</td>
+                <td>{{user.problem3}}</td>
+                <td>{{user.problem4}}</td>
+                <td>{{user.problem5}}</td>
             </tr>
             {% endfor %}
         </tbody>

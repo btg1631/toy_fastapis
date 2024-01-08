@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 
 app = FastAPI()
+
+from toy.databases.connections import Settings
+settings = Settings()
+@app.on_event("startup")
+async def init_db():
+    await settings.initialize_database()
+
 from fastapi.middleware.cors import CORSMiddleware
 # No 'Access-Control-Allow-Origin'
 # CORS 설정
@@ -11,6 +18,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 from toy.routes.menu import router as menu_router
 from toy.routes.users import router as users_router
