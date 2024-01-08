@@ -12,6 +12,11 @@ templates = Jinja2Templates(directory="toy/templates/")
 async def youngji(request:Request):
     return templates.TemplateResponse(name="users/youngji.html", context={'request':request})
 
+@router.get("/youngji2", response_class=HTMLResponse)
+async def youngji2(request:Request):
+    return templates.TemplateResponse(name="users/youngji_2.html", context={'request':request})
+
+
 
 @router.get("/gyungha")
 async def gyoungha(request:Request):

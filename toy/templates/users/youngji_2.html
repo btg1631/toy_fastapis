@@ -1,0 +1,55 @@
+{% extends "main_template.html"%}
+<title>문제 풀기</title>
+
+{% block main_container %}
+<h2 class="mb-3 mt-3">—--------- 문제 풀기  -------------------</h2>
+<form action="">
+    <div class="mb-3 mt-3 row">
+        <label for="name" class="col-sm-2 col-form-label" >응시자 이름을 입력하세요 :</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">    
+        </div>
+    </div>
+    <!-- 5문항 -->
+    <div class="mb-3 mt-3">
+        <div>문항1</div>
+        <div><input type="radio" name="useranswer1" value="1" checked>1번</div>
+        <div><input type="radio" name="useranswer1" value="2">2번</div>
+        <div><input type="radio" name="useranswer1" value="3" >3번</div>
+        <div><input type="radio" name="useranswer1" value="4">4번</div>
+    </div>
+    <div class="mb-3 mt-3">
+        <div>문항2</div>
+        <div><input type="radio" name="useranswer2" value="1" checked>1번</div>
+        <div><input type="radio" name="useranswer2" value="2">2번</div>
+        <div><input type="radio" name="useranswer2" value="3" >3번</div>
+        <div><input type="radio" name="useranswer2" value="4">4번</div>
+    </div>
+    {% for problem in problems %}
+    <div>문항{{loop.index1}}, {{problem.question}}</div>
+    <!-- <div><input type="radio" name="useranswer{{loop.index1}}" value="1" checked>1.{{user.answer1}}</div>
+    <div>2.{{user.answer2}}</div>
+    <div>3.{{user.answer3}}</div>
+    <div>4.{{user.answer4}}</div> -->
+    <!-- </div> -->
+    {% endfor %}
+    <!-- {% for problem in problems %}
+    <div>
+        <h2>문항{{loop.index1}},{{ problem.question }}</h2>
+        <ul>
+            {% if problem.choices %}
+            <ul>
+                {% for choice in problem.choices %}
+                    <li>{{ choice.choices1 }}</li>
+                    <li>{{ choice.choices2 }}</li>
+                    <li>{{ choice.choices3 }}</li>
+                    <li>{{ choice.choices4 }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
+    {% endfor %} -->
+    <button type="submit" class="btn btn-primary" formaction="/usersss/insert" formmethod="post">풀이보기</button>
+    <button type="submit" class="btn btn-primary" formaction="/users/gyungha">취소</button>
+</form>
+{% endblock %}

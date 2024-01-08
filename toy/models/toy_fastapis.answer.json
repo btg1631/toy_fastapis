@@ -1,0 +1,37 @@
+[
+  {
+  "problem_id": "ObjectId('659b3ae956c1339234f7f77b')",
+  "choices1": "+",
+  "choices2": "-",
+  "choices3": "*",
+  "choices4": "%"
+},
+{
+  "problem_id": "ObjectId('659b3ae956c1339234f7f77c')",
+  "choices1": "len()",
+  "choices2": "size()",
+  "choices3": "length()",
+  "choices4": "sizeof()"
+},
+{
+  "problem_id": "ObjectId('659b3ae956c1339234f7f77d')",
+  "choices1": "split()",
+  "choices2": "divide()",
+  "choices3": "slice()",
+  "choices4": "cut()"
+},
+{
+  "problem_id": "ObjectId('659b3ae956c1339234f7f77e')",
+  "choices1": "List",
+  "choices2": "Dictionary",
+  "choices3": "Set",
+  "choices4": "Tuple"
+},
+{
+  "problem_id": "ObjectId('659b3ae956c1339234f7f77f')",
+  "choices1": "int",
+  "choices2": "float",
+  "choices3": "bool",
+  "choices4": "str"
+}
+]

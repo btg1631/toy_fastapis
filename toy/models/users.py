@@ -16,4 +16,14 @@ class User(Document):
     
     class Settings:
         name = "questions_write"
+
+    name: Optional[str] = None
+    useranswer1: Optional[str] = None
+    useranswer2: Optional[str] = None
+    useranswer3: Optional[str] = None
+    useranswer4: Optional[str] = None
+    useranswer5: Optional[str] = None
+  
+    class Settings:
+        name = "user"
   
