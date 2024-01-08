@@ -12,16 +12,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from routes.gadgets import router as event_router1
-from routes.positionings import router as event_router2
-app.include_router(event_router1, prefix="/gadgets")
-app.include_router(event_router2, prefix="/positionings")
+from toy.routes.menu import router as menu_router
+from toy.routes.users import router as users_router
+app.include_router(users_router, prefix="/user")
+app.include_router(menu_router, prefix="/menu")
 
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
 
 # html 틀이 있는 폴더 위치
-templates = Jinja2Templates(directory = "templates/")
+templates = Jinja2Templates(directory = "toy/templates/")
 @app.get("/")
 async def root(request:Request):
     # html 틀로 호출
